@@ -4,12 +4,13 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Button } from 'react-native';
 import React, {useState} from 'react';
 
+
 //componente Propio Texto
-const Texto= ()=>{
+const Texto= ({style})=>{
   const [contenido,setContenido]=useState('Hola Mundo')
   const actualizaTexto=()=>{setContenido('Estado modificado')}
   return(
-    <Text onPress={actualizaTexto}> {contenido} </Text>
+    <Text style={[styles.text,style]} onPress={actualizaTexto}> {contenido} </Text>
   )
 }
 
@@ -19,10 +20,11 @@ export default function App() {
 
     <View style={styles.container}>
 
-      <Texto > </Texto>
-      <Texto >  </Texto>
-      <Texto > </Texto>
-      <Button title="Presionar"> </Button>
+      <Texto style={styles.azul} > </Texto>
+      <Texto style={styles.verde}>  </Texto>
+      <Texto style={styles.negro}> </Texto>
+
+
       <StatusBar style="auto" />
 
     </View>
@@ -37,7 +39,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    alignItems: 'strech',
     justifyContent: 'center',
+  
   },
+  text:{
+    color:'white',
+    fontSize:27,
+
+  },
+  azul:{backgroundColor:'blue'},
+  verde:{backgroundColor:'green'},
+  negro:{backgroundColor:'black'},
 });
